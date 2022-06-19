@@ -6,9 +6,13 @@ def printIntro():
     print("程序运行需要笔刷的颜色")
 
 def getInputs():
-    a=input("请输入笔刷的颜色(red blue,green)：")
-    b=eval(input("请输入运笔速度(10-50)："))
-    return a,b
+    while True:
+        try:
+            a=input("请输入笔刷的颜色(red blue,green)：")
+            b=eval(input("请输入运笔速度(10-50)："))
+            return a,b
+        except Exception:
+            print('输入错误请重新输入')
     
 def drawGap(): 
     turtle.penup()
