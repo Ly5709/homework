@@ -11,7 +11,8 @@ def getInputs():
     c=eval(input("圆弧弧度："))
     d=eval(input("请输入运笔速度(1-5)："))
     return a,b,c,d
-    
+    #此处我尝试加过try，但是不知道是否是数据类型不同的原因，加上while True和try except后程序一直报错，就进行了删除。
+
 def pen(size,color,seth,speed):
     turtle.setup(0.5,0.5,0,0)
     turtle.pensize(size)
