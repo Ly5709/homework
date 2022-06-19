@@ -1,0 +1,60 @@
+menu0 = '''
+        主菜单
+==========================
+1：哈希函数
+
+2：画一条蛇
+
+3：写一个数字
+
+4：写一个字
+
+5：七段数码管
+
+0：退出程序
+==========================
+'''
+
+import character
+import data
+import shumaguan2
+import hash
+
+def login():  
+    while True:
+        print('\n  主菜单   ')
+        print('=' * 12)
+        print('1. 实现哈希函数')
+        print('2. 写一个数字')
+        print('3. 写一个字')
+        print('4. 七段数码管')
+        print('5. 返回登录页')
+        print('=' * 12)
+
+        mc2 = int(input('请输入你所选择的功能：'))
+        if mc2 == 1:
+            hash.main()
+        elif mc2 == 2:
+            data.main()
+        elif mc2 == 3:
+            character.main()
+        elif mc2 == 4:
+            shumaguan2.main()
+        elif mc2 == 5:
+            break
+        else:
+            print('输入的菜单号有误！')
+
+while True:
+    print('=' * 10)
+    print('1.登录')
+    print('2.退出')
+    print('=' * 10)
+    mc1 = int(input('请输入菜单号：'))
+    if mc1 == 1:
+        login()
+    elif mc1 == 2:
+        print('谢谢使用！')
+        break
+    else:
+        print('请输入正确的菜单号！')

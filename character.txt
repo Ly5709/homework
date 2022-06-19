@@ -1,0 +1,38 @@
+import turtle
+def pen(size,color,seth,speed):
+    turtle.setup(0.5,0.5,0,0)
+    turtle.pensize(size)
+    turtle.pencolor(color)
+    turtle.seth(seth)
+    turtle.speed(speed)
+    
+def draw1(length):
+    turtle.fd(length)
+
+def draw2(length,angle):
+ for i in range(length//4+1):
+    turtle.circle(length,angle)
+
+def draw3(length,angle):
+ for i in range(length//4+1):
+    turtle.circle(-length,angle)
+
+def drawda(length):
+ turtle.pendown()
+ draw1(length)
+ turtle.back(length//2)
+ turtle.seth(-90)
+ turtle.back(length//5)
+ draw1(length//5)
+ draw2(length,length//40)
+ turtle.penup()
+ turtle.goto(length//2,0)
+ turtle.pendown()
+ turtle.seth(-90)
+ draw3(length,length//50)
+
+def main():
+    pen(20,"green",0,1)
+    drawda(100)
+
+main()

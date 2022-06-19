@@ -1,0 +1,59 @@
+import turtle
+import time
+
+def pen(size,color,seth,speed):
+    turtle.setup(0.5,0.5,0,0)
+    turtle.pensize(size)
+    turtle.pencolor(color)
+    turtle.seth(seth)
+    turtle.speed(speed)
+    
+def draw1(length):
+ scale=50
+ for i in range(length//2+1):
+    a='*'  *i
+    b='.'*(scale - i)
+    c=(i/scale)*100
+    turtle.fd(length//50)
+    print("\r{:^3.0f}%".format(c,a,b),end='')
+
+def draw2(length,angle):
+ scale=50
+ for i in range(length//2+1):
+      a='*'  *i
+      b='.'*(scale - i)
+      c=(i/scale)*100
+      turtle.circle(length,angle)
+      print("\r{:^3.0f}%".format(c,a,b),end='')
+  
+def draw3(length,angle):
+ scale=50
+ t=-time.perf_counter()
+ for i in range(length//2+1):
+      a='*'  *i
+      b='.'*(scale - i)
+      c=(i/scale)*100
+      turtle.circle(-length,angle)
+      print("\r{:^3.0f}%".format(c,a,b),end='')
+
+def drawda(length):
+ turtle.pendown()
+ draw1(length)
+ turtle.back(length//2)
+ turtle.seth(-90)
+ turtle.back(length//5)
+ draw1(length//5)
+ draw2(length,length//40)
+ turtle.penup()
+ turtle.goto(length//2,0)
+ turtle.pendown()
+ turtle.seth(-90)
+ draw3(length,length//50)
+
+def main():
+    pen(20,"green",0,1)
+    drawda(100)
+
+main()
+
+
