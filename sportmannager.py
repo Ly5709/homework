@@ -6,43 +6,69 @@ def printIntro():
     print("程序运行需要A和B的能力值（以0到1之间的小数表示）")
     print("程序运行需要环境和选手状态的判定（以1到4之间的小数表示）")
 def getInputs():
-    a=eval(input("请输入选手A的能力值（0-1）："))
-    b=eval(input("请输入选手B的能力值（0-1）："))
+    while True:
+        try:
+            a=eval(input("请输入选手A的能力值（0-1）："))
+            if(a>0 and a<1):
+                break
+            else:
+                print("请输入0——1之间的数")
+        except Exception:
+            print("输入异常")
+    while True:
+        try:
+            b=eval(input("请输入选手B的能力值（0-1）："))
+            if(b>0 and b<1):
+                break
+            else:
+                print("请输入0——1之间的数")
+        except Exception:
+            print("输入异常")
+        
     n=eval(input("模拟比赛场次："))
-    return a,b,n 
+    return a,b,n
+    
 def power(probA,probB):
-    s=eval(input("请于此处选择该场比赛的风向：若风向利于选手A，请输入“1”\n若风向不利于A，请输入“2”\n"))
-    if s==1:
-        probA=probA+0.05
-    elif s==2:
-        probB=probB+0.05
-    else:
-        print("请重新输入")
+    try:
+        s=eval(input("请于此处选择该场比赛的风向：若风向利于选手A，请输入“1”\n若风向不利于A，请输入“2”\n"))
+        if s==1:
+            probA=probA+0.05
+        elif s==2:
+            probB=probB+0.05
+        else:
+            print("没有该选项")
+    except Exception:
+            print("输入异常，请重新输入")
 
-    q=eval(input("请判断选手A赛前状态，状态极佳请输入“1”\n状态良好请输入“2”\n状态一般请输入“3”\n状态极差请输入“4”\n"))
-    if q==1:
-        probA=probA*1.1
-    elif q==2:
-        probA=probA
-    elif q==3:
-        probA=probA*0.95
-    elif q==4:
-        probA=probA*0.8
-    else:
-        print("请重新输入")
+    try:
+        q=eval(input("请判断选手A赛前状态，状态极佳请输入“1”\n状态良好请输入“2”\n状态一般请输入“3”\n状态极差请输入“4”\n"))
+        if q==1:
+            probA=probA*1.1
+        elif q==2:
+            probA=probA
+        elif q==3:
+            probA=probA*0.95
+        elif q==4:
+            probA=probA*0.8
+        else:
+            print("没有该选项")
+    except Exception:
+        print("输入异常，请重新输入")
 
-    p=eval(input("请判断选手B赛前状态，状态极佳请输入“1”\n状态良好请输入“2”\n状态一般请输入“3”\n状态极差请输入“4”\n"))
-    if p==1:
-        probB=probB*1.1
-    elif p==2:
-        probB=probB
-    elif p==3:
-        probB=probB*0.95
-    elif p==4:
-        probB=probB*0.8
-    else:
-        print("请重新输入")
-
+    try:
+        p=eval(input("请判断选手B赛前状态，状态极佳请输入“1”\n状态良好请输入“2”\n状态一般请输入“3”\n状态极差请输入“4”\n"))
+        if p==1:
+            probB=probB*1.1
+        elif p==2:
+            probB=probB
+        elif p==3:
+            probB=probB*0.95
+        elif p==4:
+            probB=probB*0.8
+        else:
+            print("没有该选项")
+    except Exception:
+        print("输入异常，请重新输入")
 def simNGames(n,probA,probB):
     winsA,winsB=0,0
     for i in range(n):
